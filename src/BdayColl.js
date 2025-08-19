@@ -5,7 +5,7 @@ import './BdayColl.css';
 const BdayColl = () => {
     const [isGiftOpened, setIsGiftOpened] = useState(false);
     // Target date: August 21st, 12 AM IST (next year)
-    const targetDate = new Date('2024-08-21T06:30:00Z'); // 12 AM IST = 6:30 AM UTC
+    const targetDate = new Date('2025-08-21T06:30:00Z'); // 12 AM IST = 6:30 AM UTC
 
     // Calculate initial countdown values
     const calculateTimeLeft = () => {

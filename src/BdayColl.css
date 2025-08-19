@@ -723,18 +723,21 @@ body, html {
 }
 
 @keyframes strobe {
-    0% { background: #ffffff; opacity: 1; }
-    10% { background: #ff0000; opacity: 0.9; }
-    20% { background: #00ff00; opacity: 0.8; }
-    30% { background: #0000ff; opacity: 0.9; }
-    40% { background: #ffff00; opacity: 0.7; }
-    50% { background: #ff00ff; opacity: 0.8; }
-    60% { background: #00ffff; opacity: 0.9; }
-    70% { background: #ff8000; opacity: 0.8; }
-    80% { background: #8000ff; opacity: 0.7; }
-    90% { background: #ff0080; opacity: 0.9; }
+    0%   { background: #ffffff; opacity: 1; }
+    10%  { background: #ff0000; opacity: 0.95; }   /* neon red */
+    20%  { background: #00ff00; opacity: 0.9; }    /* neon green */
+    30%  { background: #0000ff; opacity: 0.95; }   /* neon blue */
+    40%  { background: #ffff00; opacity: 0.85; }   /* neon yellow */
+    50%  { background: #ff00ff; opacity: 0.9; }    /* neon magenta */
+    60%  { background: #00ffff; opacity: 0.95; }   /* neon cyan */
+    70%  { background: #ff8000; opacity: 0.9; }    /* neon orange */
+    80%  { background: #8000ff; opacity: 0.85; }   /* electric purple */
+    90%  { background: #ff0080; opacity: 0.95; }   /* hot pink */
     100% { background: #ffffff; opacity: 1; }
-}
+  }
+  
+  
+  
 
 .strobe-content {
     font-size: clamp(4rem, 10vw, 8rem);

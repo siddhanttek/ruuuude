@@ -5,29 +5,20 @@ import './BdayColl.css';
 const BdayColl = () => {
     const [isGiftOpened, setIsGiftOpened] = useState(false);
     // Target date: August 21st, 12 AM IST (next year)
-    const targetDateIST = new Date('2025-08-21T00:00:00+05:30'); // 12 AM IST on 21 Aug
+    const targetDateIST = new Date(Date.UTC(2025, 7, 20, 18, 30, 0));
 
-    // Function to get current IST time
-    const getCurrentTimeInIST = () => {
-        const now = new Date();
-    
-        // Convert local time to UTC, then add 5.5 hours for IST
-        const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-        return new Date(utc + (5.5 * 60 * 60 * 1000));
-    };
+const calculateTimeLeft = () => {
+    const now = new Date();
+    const difference = targetDateIST - now;
 
-    const calculateTimeLeft = () => {
-        const nowIST = getCurrentTimeInIST();
-        const difference = targetDateIST - nowIST;
-    
-        if (difference > 0) {
-            const hours = Math.floor(difference / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-            return { hours, minutes, seconds };
-        }
-        return { hours: 0, minutes: 0, seconds: 0 };
-    };
+    if (difference > 0) {
+        const hours = Math.floor(difference / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        return { hours, minutes, seconds };
+    }
+    return { hours: 0, minutes: 0, seconds: 0 };
+};
 
 
     const [countdown, setCountdown] = useState(calculateTimeLeft());

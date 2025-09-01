@@ -25,6 +25,7 @@ const calculateTimeLeft = () => {
     const [showCountdown, setShowCountdown] = useState(true);
     const [showStrobe, setShowStrobe] = useState(false);
     const [showBirthday, setShowBirthday] = useState(false);
+    const [showOrderMessage, setShowOrderMessage] = useState(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -53,6 +54,10 @@ const calculateTimeLeft = () => {
 
     const handleGiftClick = () => {
         setIsGiftOpened(true);
+    };
+
+    const handleDysonClick = () => {
+        setShowOrderMessage(true);
     };
 
     // Format time with leading zeros
@@ -167,12 +172,23 @@ const calculateTimeLeft = () => {
                         </div>
                     ) : (
                         <div className="revealed-image">
-                            <img 
-                                src="/dyson.png" 
-                                alt="Dyson Airwrap Multi-styler" 
-                                className="surprise-image"
-                            />
-                            <div className="surprise-text">🎉 tada! 🎉</div>
+                            {!showOrderMessage ? (
+                                <>
+                                    <img 
+                                        src="/dyson.png" 
+                                        alt="Dyson Airwrap Multi-styler" 
+                                        className="surprise-image"
+                                        onClick={handleDysonClick}
+                                    />
+                                    <div className="surprise-text">🎉 tada! 🎉</div>
+                                </>
+                            ) : (
+                                <div className="order-message">
+                                    <div className="order-title">Order placed!!</div>
+                                    <div className="order-number">Your order # is: 910700336441</div>
+                                    <div className="tracking-info">Tracking ID will be shared once the order is shipped</div>
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
